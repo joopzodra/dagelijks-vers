@@ -12,6 +12,10 @@
 </template>
 
 <script>
+/*
+ * The LoadingErrorBadge appears at the bottom of the app. It's a child component of the AppContent component.
+ * Emitting the hide-badge-error event happens after the same time the leave transition takes.
+ */
 export default {
   data () {
     return {
@@ -65,4 +69,3 @@ button {
   border-radius: 4px
 }
 </style>
-<!-- enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft" -->

@@ -1,7 +1,7 @@
 <template>
   <div class="stored-poems-list w3-container slide" v-if="poems && poems.length" :style="{ 'height': elemHeight + 'px'}">
     <div class="row">
-      <div v-for="poem of poems" :key="poem.id" class="poem-container w3-border-bottom w3-padding-16 col-xs-12 col-sm-12 col-md-6 col-lg-4" :class="{selected: poem === selectedPoem}" @click="toggleSelect(poem)">
+      <div v-for="poem of poems" :key="poem.id" class="poem-container w3-border-bottom col-xs-12 col-sm-12 col-md-6 col-lg-4" :class="{selected: poem === selectedPoem}" @click="toggleSelect(poem)">
         <PoemItem :poem="poem" :selectedPoemId="selectedPoem ? selectedPoem.id : -1" storageAction="delete" v-on:poemDeleted="refreshPoems"></PoemItem>
       </div>
     </div>
@@ -12,6 +12,11 @@
 </template>
 
 <script>
+/*
+ * The PoemListStored component shows the poem that thie user stored in the browser.
+ * The component sets its height by the computed elemHeight property. The height is necessary for getting the scrollTop value, which is used after returning from the PoemsListDeliverd component for setting back the previous scroll position. Before destroying the component, its scrollTop value is saved in the app's store.
+ * On mounting, a setTimeout delay of 200 ms is set. Otherwise the component doesn't scroll. (It's odd, because on the PoemsListDelivered this timeout isn't necessary.)
+ */
 import localforage from 'localforage'
 import PoemItem from './PoemItem'
 

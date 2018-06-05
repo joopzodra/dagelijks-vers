@@ -11,6 +11,14 @@
 </template>
 
 <script>
+/*
+ * The AppContent component contains the main content in the router view.
+ * It uses a slide transition to switch between the two poems list components in the router view.
+ * The component watches the changes in the routes. On a change it applies an enter-active-class to the new routed component and an leave-active-class to the previous routed component.
+ * The user can switch routes by the router links in the Header component. On mobile devices he can also swipe left or right. The Hammer.js module is used for this. (It doesn't work as smooth as native swipe, unfortunately.)
+ * In initiation the component configs the browser storage, by the localforage module. It also askes the backendservice to load poems from the backend. And it requests a sockets connection so the backend will constantly push new poems in.
+ * The loadingError value is set globally via the app's store in order to handle it uniformly in all components (also the PoemListDelivered component and the backend service can set the loadingError value).
+*/
 import Hammer from 'hammerjs'
 import localforage from 'localforage'
 

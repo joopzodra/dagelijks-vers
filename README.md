@@ -1,6 +1,13 @@
-# second-app
+# Dagelijks vers
 
-> A Vue.js project
+A Vue.js project. It's an app showing list items. 
+
+ * Every minute a few new items are added over a sockets connection.
+ * When scrolling to the bottom of the list, new items are loaded.
+ * The list is constantly refreshed but the user can store items in the browser storage. 
+
+### Poems
+The list items in this project are poems. Randomly 4 lines long fragments are chosen from a database with poems.
 
 ## Build Setup
 
@@ -16,12 +23,4 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -9,6 +9,10 @@
 </template>
 
 <script>
+/*
+ * The footer component contains the link to the FrontendJR website's homepage.
+ * Also, it emits its height to the App component after it's mounted.
+ */
 export default {
   mounted () {
     this.$emit('footermounted', this.$el.offsetHeight)
@@ -16,6 +20,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
+<style >
+/* Styles for the Footer component are in index.html (minified) and in styles-uncompressed.css (pretty) */
 </style>

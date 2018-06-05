@@ -1,3 +1,6 @@
+/*
+ * The data store for all the globally used data and values.
+ */
 import Vue from 'vue'
 import Vuex from 'vuex'
 

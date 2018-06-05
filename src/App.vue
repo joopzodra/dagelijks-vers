@@ -7,9 +7,14 @@
 </template>
 
 <script>
+/* The App component is the app's root component.
+ * For fast initial rendering there are a header and footer in the index.html. Next, this root component loads the header and footer component. A separate webpack file contains the (relative large) AppContent.
+ * The component listens for mount-events of the header and footer, on which header and footer heights are stored; there're used by the PoemsListDelivered component.
+ * The App component also loads the css files for app wide use, and contains some app wide css. Other app wide styles are inline in the index.html.
+ */
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
-const AppContent = () => import(/* webpackChunkName: "AppContent" */ './components/AppContent.vue')
+const AppContent = () => import(/* webpackChunkName: "content" */ './components/AppContent.vue')
 
 export default {
   components: {
@@ -43,7 +48,6 @@ sm min-width: 48em
 md min-width: 64em
 lg min-width: 75em
 */
-
 @media (min-width: 64em) {
   .slide-container {
     max-width: none;

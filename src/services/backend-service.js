@@ -1,3 +1,9 @@
+/*
+ * The backend service handles the traffic from the backend.
+ * It converts the poem items it receives from sqlite item to poem objects adapted to usage in the app.
+ * It commits all the received poems to the app's store.
+ */
+
 import axios from 'axios'
 import io from 'socket.io-client'
 
@@ -32,7 +38,7 @@ class BackendService {
       sourceUrlLabel: poem.source_url_label,
       sourceUrl: poem.source_url,
       poetImg: poem.poet_img,
-      createdAt: poem.createdAt, // this property is used for sorting on time
+      createdAt: poem.createdAt, // this property is used by the PoemListStored component for sorting on time
       time: poem.time
     }
   }
@@ -44,6 +50,13 @@ class BackendService {
       store.commit('addPoem', convertedPoem)
       store.commit('addToPoemsLoadingOffset', 1)
     })
+    this.socket.on('connect_failed', this.setLoadingError)
+    this.socket.on('error', this.setLoadingError)
+  }
+
+  setLoadingError (error) {
+    this.$store.commit('setLoadingError', true)
+    console.log(error)
   }
 }
 

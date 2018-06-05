@@ -5,6 +5,9 @@
 </template>
 
 <script>
+/*
+ * The Spinner component is a fully css component.
+ */
 export default {
 
 }
