@@ -5,10 +5,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-// enable Promises in IE
-import { polyfill } from 'es6-promise'
-polyfill()
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -17,5 +13,6 @@ export const vueInstance = new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  /* template: '<App/>' */
+  render: h => h(App)
 })
