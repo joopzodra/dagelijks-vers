@@ -1,13 +1,8 @@
 # Dagelijks vers
 
-A Vue.js project. It's an app showing list items. 
+A list app, made with Vue. The updates it generates are poem lines: every 15 seconds a new fragment of four lines. The fragment are randomly choosen from a body of poems.
 
- * Every minute a few new items are added over a sockets connection.
- * When scrolling to the bottom of the list, new items are loaded.
- * The list is constantly refreshed but the user can store items in the browser storage. 
-
-### Poems
-The list items in this project are poems. Randomly 4 lines long fragments are chosen from a database with poems.
+You can store fragments in the browser storage. Stored fragments are listed under the 'Voorraad' tab.
 
 ## Build Setup
 
