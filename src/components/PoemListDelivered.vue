@@ -21,7 +21,7 @@
  * Poems pushed by the backend slide in from the top when the first poems of the list is in view. If the first poem is scrolled out of view, a new poem is added without slide. The first time this happens, the the list is scrolled up in order to keep the poems in view in their position. Oddly, after the first entrance, the browser itself takes care of the scrolling up!?
  * On wider screens (desktop) the poems are not listed but placed in rows. Then a different animation is used.
 */
-import _ from 'lodash'
+import throttle from 'lodash/throttle'
 
 import { backendService } from '../services/backend-service'
 import PoemItem from './PoemItem'
@@ -51,7 +51,7 @@ export default {
       return this.$store.state.poems
     },
     throttledCheckIfNeedsLoading () {
-      return _.throttle(this.checkIfNeedsLoading, 250)
+      return throttle(this.checkIfNeedsLoading, 250)
     },
     initLoading () {
       return this.$store.state.initLoading
@@ -171,7 +171,7 @@ export default {
       if (this.poemsLoading) {
         return
       }
-      this.$el.className = this.elClass
+      this.$el.className = this.elClass + ' blink'
       el.style.transform = `translateY(-${this.poemContainerHeight}px)`
       this.$nextTick(() => {
         el.style.transition = 'transform 2.5s'

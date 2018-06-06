@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import 'hammerjs'
+import 'localforage'
+import 'lodash/throttle'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
