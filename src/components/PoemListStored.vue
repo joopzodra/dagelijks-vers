@@ -1,12 +1,12 @@
 <template>
-  <div class="stored-poems-list w3-container slide" v-if="poems && poems.length" :style="{ 'height': elemHeight + 'px'}">
+  <div class="stored-poems-list container slide" v-if="poems && poems.length" :style="{ 'height': elemHeight + 'px'}">
     <div class="row">
-      <div v-for="poem of poems" :key="poem.id" class="poem-container w3-border-bottom col-xs-12 col-sm-12 col-md-6 col-lg-4" :class="{selected: poem === selectedPoem}" @click="toggleSelect(poem)">
+      <div v-for="poem of poems" :key="poem.id" class="poem-container border-bottom col-xs-12 col-sm-12 col-md-6 col-lg-4" :class="{selected: poem === selectedPoem}" @click="toggleSelect(poem)">
         <PoemItem :poem="poem" :selectedPoemId="selectedPoem ? selectedPoem.id : -1" storageAction="delete" v-on:poemDeleted="refreshPoems"></PoemItem>
       </div>
     </div>
   </div>
-  <div class="stored-poems-list w3-container slide" v-else>
+  <div class="stored-poems-list container slide" v-else>
     <p>Je hebt nog geen versregels bewaard.</p>
   </div>
 </template>

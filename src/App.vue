@@ -37,7 +37,6 @@ export default {
 // Css for all app components
 <style src="./styles/animate.css"></style>
 <style src="./styles/flexboxgrid.css"></style>
-<style src="./styles/w3.css"></style>
 <style>
 /*
 Some styles for html, body and #app are in internal stylesheet in index.html
@@ -55,13 +54,62 @@ lg min-width: 75em
   .poem-container {
    border-bottom: 0px !important;
   }
-  .poem-item {
-    background-color: rgb(255,255,239);
-    padding: 24px;
-    margin: 16px;
-  }
-  .poem-item .date {
-    text-align: left !important;
-  }
+}
+/* Following styles are copied from w3 styles */
+.border {
+  border: 1px solid #ccc;
+}
+.border-top{
+  border-top:1px solid #ccc
+}
+.border-bottom {
+  border-bottom: 1px solid #ccc;
+}
+.white {
+  color:#000 !important;
+  background-color:#fff !important;
+}
+.green {
+  color:#fff !important;
+  background-color:#4CAF50 !important;
+}
+.button {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+.button:hover{
+  color:#000;
+  background-color:#ccc;
+}
+.small {
+  font-size:12px;
+}
+.container:after, .container:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+.container {
+    padding: 0 16px;
 }
 </style>

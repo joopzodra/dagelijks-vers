@@ -12,7 +12,7 @@
       <div class="name">{{poem.poet}}</div>
     </div>
     <div class="button-container" v-if="poem.id === selectedPoemId">
-      <button class="w3-button w3-green w3-small" @click="buttonAction">{{buttonText}}</button>
+      <button class="button green small" @click="buttonAction">{{buttonText}}</button>
     </div>
   </div>
 </template>
@@ -169,5 +169,12 @@ img {
 }
 .button-container {
   text-align: right;
+}
+@media (min-width: 64em) {
+  .poem-item {
+    background-color: rgb(255,255,205);
+    padding: 24px;
+    margin: 16px;
+  }
 }
 </style>

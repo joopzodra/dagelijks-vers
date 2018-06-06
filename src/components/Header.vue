@@ -2,7 +2,7 @@
   <div class="header-container">
     <header>
       <h1>dagelijks vers</h1>
-      <nav class="w3-border-top">
+      <nav class="border-top">
         <router-link to="/aanvoer">aanvoer</router-link>
         <router-link to="/voorraad">voorraad</router-link>
       </nav>

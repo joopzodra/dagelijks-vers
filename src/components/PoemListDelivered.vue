@@ -1,9 +1,9 @@
 <template>
-  <div class="poems-list w3-container slide" :style="{ 'height': elemHeight + 'px'}" >
+  <div :class="elClass" :style="{ 'height': elemHeight + 'px'}" >
     <div >
       <Spinner v-if="initLoading" />
       <transition-group :css="false" tag="div" id="transition-container" @enter="enterPoem" @after-enter="afterEnterPoem" class="row" ref="transitionContainer">
-        <div v-for="poem of poems" :key="poem.id" class="poem-container w3-border-bottom col-xs-12 col-sm-12 col-md-6 col-lg-4" :class="{selected: poem === selectedPoem}" @click="toggleSelect(poem)" ref="poemContainer">
+        <div v-for="poem of poems" :key="poem.id" class="poem-container border-bottom col-xs-12 col-sm-12 col-md-6 col-lg-4" :class="{selected: poem === selectedPoem}" @click="toggleSelect(poem)" ref="poemContainer">
             <PoemItem :poem="poem" :selectedPoemId="selectedPoem ? selectedPoem.id : -1" storageAction="store" ref="jpoem"></PoemItem>
         </div>
       </transition-group>
@@ -41,7 +41,8 @@ export default {
       poemContainerHeight: 0,
       programScroll: false,
       previousScrollPos: 0,
-      previousEnterWasShiftIn: true
+      previousEnterWasShiftIn: true,
+      elClass: 'poems-list container slide'
     }
   },
 
@@ -134,7 +135,7 @@ export default {
     afterEnterPoem (el) {
       this.$el.style.transition = ''
       setTimeout(() => {
-        this.$el.className = 'poems-list w3-container slide'
+        this.$el.className = this.elClass
         this.$el.style.height = this.elemHeight + 'px'
       }, 2000)
     },
@@ -170,7 +171,7 @@ export default {
       if (this.poemsLoading) {
         return
       }
-      this.$el.className = 'poems-list w3-container slide blink'
+      this.$el.className = this.elClass
       el.style.transform = `translateY(-${this.poemContainerHeight}px)`
       this.$nextTick(() => {
         el.style.transition = 'transform 2.5s'
@@ -201,7 +202,7 @@ export default {
     background-color: rgb(255,255,255);
   }
   50% {
-    background-color: rgb(245,245,245);
+    background-color: rgb(225,225,225);
   }
 }
 @media (min-width: 64em) {

@@ -4,7 +4,7 @@
       <div class="badge-inner" v-if="show">
         <div class="badge-text">Geen verse aanvoer door server-probleem.</div>
         <div>
-          <button class="w3-button w3-white w3-border" @click="hide">OK</button>
+          <button class="button white border" @click="hide">OK</button>
         </div>
       </div>
     </transition>

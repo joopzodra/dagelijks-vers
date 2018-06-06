@@ -42,6 +42,7 @@ nav {
   display: flex !important;
   justify-content: space-around;
   border-color: green;
+  border-top: 1px solid #ccc;
 }
 /* nav span is for index.html, nav a is for Header component */
 nav span, nav a {
@@ -51,7 +52,7 @@ nav span, nav a {
   padding: 8px 0;
   color: green;
   text-decoration: none;
-  background-color: rgba(0, 128, 0, 0.1);
+  background-color: rgb(210, 231, 210);
 }
 nav span:nth-child(1), nav a:nth-child(1) {
   border-radius: 0 0 10px 0;
@@ -85,7 +86,7 @@ footer {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  background-color: rgba(0, 128, 0, 0.1);
+  background-color: rgb(210, 231, 210);
   display: flex !important;
   justify-content: center;
 }
