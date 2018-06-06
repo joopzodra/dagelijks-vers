@@ -105,7 +105,7 @@ export default {
       const mostLeftRouteIndex = 0
       const mostRightRouteIndex = routes.length - 1
       const slideContainer = this.$refs.slideContainer
-      const hammerOptions = {
+      /* const hammerOptions = {
         dragLockToAxis: true,
         dragBlockHorizontal: true
       }
@@ -117,6 +117,28 @@ export default {
         }
       })
       hammer.on('dragright swiperight', (ev) => {
+        if (currentRouteIndex > mostLeftRouteIndex) {
+          this.$router.push(routes[currentRouteIndex - 1])
+          currentRouteIndex--
+        }
+      }) */
+      /* Hammer above doesn't work in Chrome. Solution below according to https://github.com/hammerjs/hammer.js/issues/1065 */
+      const hammertime = new Hammer.Manager(slideContainer, {
+        touchAction: 'auto',
+        inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput,
+        recognizers: [
+          [Hammer.Swipe, {
+            direction: Hammer.DIRECTION_HORIZONTAL
+          }]
+        ]
+      })
+      hammertime.on('dragleft swipeleft', (ev) => {
+        if (currentRouteIndex < mostRightRouteIndex) {
+          this.$router.push(routes[currentRouteIndex + 1])
+          currentRouteIndex++
+        }
+      })
+      hammertime.on('dragright swiperight', (ev) => {
         if (currentRouteIndex > mostLeftRouteIndex) {
           this.$router.push(routes[currentRouteIndex - 1])
           currentRouteIndex--
